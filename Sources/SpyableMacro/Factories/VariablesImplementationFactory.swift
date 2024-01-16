@@ -47,6 +47,7 @@ struct VariablesImplementationFactory {
 
   @MemberBlockItemListBuilder
   func variablesDeclarations(
+    modifiers: DeclModifierListSyntax,
     protocolVariableDeclaration: VariableDeclSyntax
   ) throws -> MemberBlockItemListSyntax {
     if protocolVariableDeclaration.bindings.count == 1 {
@@ -65,9 +66,9 @@ struct VariablesImplementationFactory {
        var name: String
        */
       } else {
-        try protocolVariableDeclarationWithGetterAndSetter(binding: binding)
+        try protocolVariableDeclarationWithGetterAndSetter(modifiers: modifiers, binding: binding)
 
-        try underlyingVariableDeclaration(binding: binding)
+        try underlyingVariableDeclaration(modifiers: modifiers, binding: binding)
       }
     } else {
       // As far as I know variable declaration in a protocol should have exactly one binding.
@@ -76,6 +77,7 @@ struct VariablesImplementationFactory {
   }
 
   private func protocolVariableDeclarationWithGetterAndSetter(
+    modifiers: DeclModifierListSyntax,
     binding: PatternBindingSyntax
   ) throws -> VariableDeclSyntax {
     try VariableDeclSyntax(
@@ -86,9 +88,11 @@ struct VariablesImplementationFactory {
       }
       """
     )
+    .applying(modifiers: modifiers)
   }
 
   private func underlyingVariableDeclaration(
+    modifiers: DeclModifierListSyntax,
     binding: PatternBindingListSyntax.Element
   ) throws -> VariableDeclSyntax {
     try VariableDeclSyntax(
@@ -96,6 +100,7 @@ struct VariablesImplementationFactory {
       var \(raw: underlyingVariableName(binding: binding)): (\(binding.typeAnnotation!.type.trimmed))!
       """
     )
+    .applying(modifiers: modifiers)
   }
 
   private func underlyingVariableName(binding: PatternBindingListSyntax.Element) throws -> String {
