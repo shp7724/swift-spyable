@@ -54,7 +54,7 @@ The generated class includes properties and methods for tracking the number of m
 the arguments passed, and whether the method was called.
 
 ```swift
-class ServiceProtocolSpy: ServiceProtocol {
+final class ServiceProtocolSpy: ServiceProtocol {
     var name: String {
         get { underlyingName }
         set { underlyingName = newValue }

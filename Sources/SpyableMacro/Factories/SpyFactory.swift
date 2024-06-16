@@ -47,7 +47,7 @@ import SwiftSyntaxBuilder
 /// ```
 /// the factory generates:
 /// ```swift
-/// class ServiceProtocolSpy: ServiceProtocol {
+/// final class ServiceProtocolSpy: ServiceProtocol {
 ///     var data: Data {
 ///         get { underlyingData }
 ///         set { underlyingData = newValue }
@@ -108,6 +108,7 @@ struct SpyFactory {
       .compactMap { $0.decl.as(FunctionDeclSyntax.self)?.removingLeadingSpaces }
 
     return try ClassDeclSyntax(
+      modifiers: [DeclModifierSyntax(name: .keyword(.final))],
       name: identifier,
       genericParameterClause: genericParameterClause,
       inheritanceClause: InheritanceClauseSyntax {

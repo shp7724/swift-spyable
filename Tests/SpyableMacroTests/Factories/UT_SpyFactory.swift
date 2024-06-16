@@ -9,7 +9,7 @@ final class UT_SpyFactory: XCTestCase {
     try assertProtocol(
       withDeclaration: "protocol Foo {}",
       expectingClassDeclaration: """
-        class FooSpy: Foo {
+        final class FooSpy: Foo {
         }
         """
     )
@@ -23,7 +23,7 @@ final class UT_SpyFactory: XCTestCase {
         }
         """,
       expectingClassDeclaration: """
-        class ServiceSpy: Service {
+        final class ServiceSpy: Service {
             var fetchCallsCount = 0
             var fetchCalled: Bool {
                 return fetchCallsCount > 0
@@ -46,7 +46,7 @@ final class UT_SpyFactory: XCTestCase {
         }
         """,
       expectingClassDeclaration: """
-        class ViewModelProtocolSpy: ViewModelProtocol {
+        final class ViewModelProtocolSpy: ViewModelProtocol {
             var fooTextCountCallsCount = 0
             var fooTextCountCalled: Bool {
                 return fooTextCountCallsCount > 0
@@ -73,7 +73,7 @@ final class UT_SpyFactory: XCTestCase {
         }
         """,
       expectingClassDeclaration: """
-        class ViewModelProtocolSpy: ViewModelProtocol {
+        final class ViewModelProtocolSpy: ViewModelProtocol {
             var fooActionCallsCount = 0
             var fooActionCalled: Bool {
                 return fooActionCallsCount > 0
@@ -100,7 +100,7 @@ final class UT_SpyFactory: XCTestCase {
         }
         """,
       expectingClassDeclaration: """
-        class ViewModelProtocolSpy: ViewModelProtocol {
+        final class ViewModelProtocolSpy: ViewModelProtocol {
             var fooActionCallsCount = 0
             var fooActionCalled: Bool {
                 return fooActionCallsCount > 0
@@ -123,7 +123,7 @@ final class UT_SpyFactory: XCTestCase {
         }
         """,
       expectingClassDeclaration: """
-        class BarSpy: Bar {
+        final class BarSpy: Bar {
             var printCallsCount = 0
             var printCalled: Bool {
                 return printCallsCount > 0
@@ -151,7 +151,7 @@ final class UT_SpyFactory: XCTestCase {
         }
         """,
       expectingClassDeclaration: """
-        class ServiceProtocolSpy: ServiceProtocol {
+        final class ServiceProtocolSpy: ServiceProtocol {
             var fooTextCountCallsCount = 0
             var fooTextCountCalled: Bool {
                 return fooTextCountCallsCount > 0
@@ -183,7 +183,7 @@ final class UT_SpyFactory: XCTestCase {
         }
         """,
       expectingClassDeclaration: """
-        class ServiceProtocolSpy: ServiceProtocol {
+        final class ServiceProtocolSpy: ServiceProtocol {
             var fooCallsCount = 0
             var fooCalled: Bool {
                 return fooCallsCount > 0
@@ -219,7 +219,7 @@ final class UT_SpyFactory: XCTestCase {
         }
         """,
       expectingClassDeclaration: """
-        class ServiceProtocolSpy: ServiceProtocol {
+        final class ServiceProtocolSpy: ServiceProtocol {
             var data: Data {
                 get {
                     underlyingData
@@ -242,7 +242,7 @@ final class UT_SpyFactory: XCTestCase {
         }
         """,
       expectingClassDeclaration: """
-        class ServiceProtocolSpy: ServiceProtocol {
+        final class ServiceProtocolSpy: ServiceProtocol {
             var data: Data?
         }
         """
@@ -257,7 +257,7 @@ final class UT_SpyFactory: XCTestCase {
         }
         """,
       expectingClassDeclaration: """
-        class ServiceProtocolSpy: ServiceProtocol {
+        final class ServiceProtocolSpy: ServiceProtocol {
             var completion: () -> Void {
                 get {
                     underlyingCompletion
@@ -282,7 +282,7 @@ final class UT_SpyFactory: XCTestCase {
         }
         """,
       expectingClassDeclaration: """
-        class FooSpy<Key: Hashable>: Foo {
+        final class FooSpy<Key: Hashable>: Foo {
         }
         """
     )
@@ -297,7 +297,7 @@ final class UT_SpyFactory: XCTestCase {
         }
         """,
       expectingClassDeclaration: """
-        class FooSpy<Key: Hashable, Value>: Foo {
+        final class FooSpy<Key: Hashable, Value>: Foo {
         }
         """
     )

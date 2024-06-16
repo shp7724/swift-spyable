@@ -49,7 +49,7 @@ final class UT_SpyableMacro: XCTestCase {
 
         \(protocolDeclaration)
 
-        class ServiceProtocolSpy: ServiceProtocol {
+        final class ServiceProtocolSpy: ServiceProtocol {
             var name: String {
                 get {
                     underlyingName
@@ -197,7 +197,7 @@ final class UT_SpyableMacro: XCTestCase {
 
         \(protocolDeclaration)
 
-        class MyProtocolSpy: MyProtocol {
+        final class MyProtocolSpy: MyProtocol {
         }
         """,
       macros: sut
@@ -216,7 +216,7 @@ final class UT_SpyableMacro: XCTestCase {
 
         \(protocolDeclaration)
 
-        class MyProtocolSpy: MyProtocol {
+        final class MyProtocolSpy: MyProtocol {
         }
         """,
       macros: sut
@@ -236,7 +236,7 @@ final class UT_SpyableMacro: XCTestCase {
         \(protocolDeclaration)
 
         #if CUSTOM
-        class MyProtocolSpy: MyProtocol {
+        final class MyProtocolSpy: MyProtocol {
         }
         #endif
         """,
@@ -261,7 +261,7 @@ final class UT_SpyableMacro: XCTestCase {
         \(protocolDeclaration)
 
         #if CUSTOM
-        class MyProtocolSpy: MyProtocol {
+        final class MyProtocolSpy: MyProtocol {
         }
         #endif
         """,
@@ -281,7 +281,7 @@ final class UT_SpyableMacro: XCTestCase {
 
         \(protocolDeclaration)
 
-        class MyProtocolSpy: MyProtocol {
+        final class MyProtocolSpy: MyProtocol {
         }
         """,
       diagnostics: [
@@ -317,7 +317,7 @@ final class UT_SpyableMacro: XCTestCase {
         let myCustomFlag = "DEBUG"
         \(protocolDeclaration)
 
-        class MyProtocolSpy: MyProtocol {
+        final class MyProtocolSpy: MyProtocol {
         }
         """,
       diagnostics: [

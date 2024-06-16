@@ -20,7 +20,7 @@
 ///
 /// Example of generated code:
 /// ```swift
-/// class ServiceProtocolSpy: ServiceProtocol {
+/// final class ServiceProtocolSpy: ServiceProtocol {
 ///     var data: Data {
 ///         get { underlyingData }
 ///         set { underlyingData = newValue }
