@@ -80,6 +80,8 @@ final class UT_SpyFactory: XCTestCase {
         """,
       expectingClassDeclaration: """
         class ViewModelProtocolSpy: ViewModelProtocol {
+            init() {
+            }
             var fooModelCallsCount = 0
             var fooModelCalled: Bool {
                 return fooModelCallsCount > 0
@@ -107,6 +109,8 @@ final class UT_SpyFactory: XCTestCase {
         """,
       expectingClassDeclaration: """
         class ViewModelProtocolSpy: ViewModelProtocol {
+            init() {
+            }
             var fooModelCallsCount = 0
             var fooModelCalled: Bool {
                 return fooModelCallsCount > 0
@@ -134,6 +138,8 @@ final class UT_SpyFactory: XCTestCase {
         """,
       expectingClassDeclaration: """
         class ViewModelProtocolSpy: ViewModelProtocol {
+            init() {
+            }
             var fooModelCallsCount = 0
             var fooModelCalled: Bool {
                 return fooModelCallsCount > 0
@@ -161,6 +167,8 @@ final class UT_SpyFactory: XCTestCase {
         """,
       expectingClassDeclaration: """
         class ViewModelProtocolSpy: ViewModelProtocol {
+            init() {
+            }
             var fooModelCallsCount = 0
             var fooModelCalled: Bool {
                 return fooModelCallsCount > 0
@@ -344,6 +352,8 @@ final class UT_SpyFactory: XCTestCase {
         """,
       expectingClassDeclaration: """
         class ServiceProtocolSpy: ServiceProtocol {
+            init() {
+            }
             var fooCallsCount = 0
             var fooCalled: Bool {
                 return fooCallsCount > 0
@@ -372,6 +382,8 @@ final class UT_SpyFactory: XCTestCase {
         """,
       expectingClassDeclaration: """
         class ServiceProtocolSpy: ServiceProtocol {
+            init() {
+            }
             var fooCallsCount = 0
             var fooCalled: Bool {
                 return fooCallsCount > 0
@@ -442,6 +454,8 @@ final class UT_SpyFactory: XCTestCase {
         """,
       expectingClassDeclaration: """
         class ServiceProtocolSpy: ServiceProtocol {
+            init() {
+            }
             var data: String!
         }
         """
@@ -457,6 +471,8 @@ final class UT_SpyFactory: XCTestCase {
         """,
       expectingClassDeclaration: """
         class ServiceProtocolSpy: ServiceProtocol {
+            init() {
+            }
             var data: any Codable {
                 get {
                     underlyingData

@@ -195,10 +195,8 @@ final class UT_SpyableMacro: XCTestCase {
   }
 
   func testMacroWithCustomFlag() {
-    let protocolDeclaration = """
-      public protocol ServiceProtocol {
-          var variable: Bool? { get set }
-      }
+    let protocolDeclaration = "protocol MyProtocol {}"
+      assertMacroExpansion(
       """
       @Spyable()
       \(protocolDeclaration)
@@ -208,6 +206,8 @@ final class UT_SpyableMacro: XCTestCase {
         \(protocolDeclaration)
 
         class MyProtocolSpy: MyProtocol {
+            init() {
+            }
         }
         """,
       macros: sut
@@ -227,6 +227,8 @@ final class UT_SpyableMacro: XCTestCase {
         \(protocolDeclaration)
 
         class MyProtocolSpy: MyProtocol {
+            init() {
+            }
         }
         """,
       macros: sut
@@ -235,7 +237,6 @@ final class UT_SpyableMacro: XCTestCase {
 
   func testMacroWithBehindPreprocessorFlagArgument() {
     let protocolDeclaration = "protocol MyProtocol {}"
-
     assertMacroExpansion(
       """
       @Spyable(behindPreprocessorFlag: "CUSTOM")
@@ -246,11 +247,9 @@ final class UT_SpyableMacro: XCTestCase {
         \(protocolDeclaration)
 
         #if CUSTOM
-        public class ServiceProtocolSpy: ServiceProtocol {
-            public init() {
+        class MyProtocolSpy: MyProtocol {
+            init() {
             }
-            public
-            var variable: Bool?
         }
         #endif
         """,
@@ -259,11 +258,7 @@ final class UT_SpyableMacro: XCTestCase {
   }
 
   func testMacroWithNoFlag() {
-    let protocolDeclaration = """
-      public protocol ServiceProtocol {
-          var variable: Bool? { get set }
-      }
-      """
+    let protocolDeclaration = "protocol MyProtocol {}"
     assertMacroExpansion(
       """
       @Spyable
@@ -273,11 +268,9 @@ final class UT_SpyableMacro: XCTestCase {
 
         \(protocolDeclaration)
 
-        public class ServiceProtocolSpy: ServiceProtocol {
-            public init() {
+        class MyProtocolSpy: MyProtocol {
+            init() {
             }
-            public
-            var variable: Bool?
         }
         """,
       macros: sut

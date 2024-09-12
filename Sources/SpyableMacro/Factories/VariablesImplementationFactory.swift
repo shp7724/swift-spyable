@@ -59,9 +59,10 @@ struct VariablesImplementationFactory {
        var name: String!
        */
       if binding.typeAnnotation?.type.is(OptionalTypeSyntax.self) == true
-        || binding.typeAnnotation?.type.is(ImplicitlyUnwrappedOptionalTypeSyntax.self) == true
+        || binding.typeAnnotation?.type.is(ImplicitlyUnwrappedOptionalTypeSyntax.self) == true,
+         let variableDecl = accessorRemovalVisitor.visit(protocolVariableDeclaration).as(VariableDeclSyntax.self)
       {
-        accessorRemovalVisitor.visit(protocolVariableDeclaration)
+        variableDecl.applying(modifiers: modifiers)
         /*
        var name: String
        */
