@@ -196,7 +196,7 @@ final class UT_SpyableMacro: XCTestCase {
 
   func testMacroWithCustomFlag() {
     let protocolDeclaration = "protocol MyProtocol {}"
-      assertMacroExpansion(
+    assertMacroExpansion(
       """
       @Spyable()
       \(protocolDeclaration)
